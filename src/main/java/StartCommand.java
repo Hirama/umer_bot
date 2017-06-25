@@ -14,7 +14,6 @@ public class StartCommand {
         btns.add("Безработный");
         btns.add("Ребенок");
         btns.add("Работающий");
-        System.out.println( answers.getProperty("приветствие") );
         MessageSender.send(chatId, answers.getProperty("приветствие"), btns, context);
     }
 }
