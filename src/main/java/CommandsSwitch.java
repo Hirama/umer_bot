@@ -4,7 +4,7 @@ public class CommandsSwitch {
     public static void chooseAction(String message, DeceasedProfile profile, Update update, UmerBot context){
 
         switch(message){
-            case "/run":{
+            case "/start":{
                 StartCommand.run(profile, update, context);
                 break;
             }
