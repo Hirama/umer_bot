@@ -7,7 +7,7 @@ public class PropertiesLoader {
     public static Properties load(String resourceName){
         Properties props = new Properties();
         try {
-            props.load(new InputStreamReader(ClassLoader.getSystemResourceAsStream("tg.properties")));
+            props.load(new InputStreamReader(ClassLoader.getSystemResourceAsStream(resourceName)));
         } catch (IOException e) {
             e.printStackTrace();
             return null;
