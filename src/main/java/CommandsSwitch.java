@@ -4,8 +4,13 @@ public class CommandsSwitch {
     public static void chooseAction(String message, DeceasedProfile profile, Update update, UmerBot context){
 
         switch(message){
+            case "/run":{
+                StartCommand.run(profile, update, context);
+                break;
+            }
+
             case "Пенсионер":
-            case "Неработающий":
+            case "Безработный":
             case "Ребенок":
             case "Работающий":{
                 Category category = Category.switchType(message);
@@ -23,9 +28,22 @@ public class CommandsSwitch {
             case "Получить выплату":
             case "Похоронить бесплатно":{
                 HelpType helpType = HelpType.switchType(message);
-                FinalAnswerGenerator.reply(helpType, profile, update, context);
+                HelpAnswerGenerator.reply(helpType, profile, update, context);
                 break;
             }
+
+            case "Классические похороны":
+            case "Кремация":{
+                TypeFunerealProcessor.process(message, profile, update, context);
+                break;
+            }
+
+            case "Есть":
+            case "Нет":{
+                FinalAnswer.reply(message, profile, update, context);
+                break;
+            }
+
             default:
                 System.out.println("Unknown command");
         }

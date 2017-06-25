@@ -1,6 +1,6 @@
 public enum Category {
     Pensioner("Пенсионер"),
-    Unemployed("Неработающий"),
+    Unemployed("Безработный"),
     Child("Ребенок"),
     Employed("Работающий");
 
@@ -13,7 +13,7 @@ public enum Category {
         switch (text){
             case "Пенсионер":
                 return Pensioner;
-            case "Неработающий":
+            case "Безработный":
                 return Unemployed;
             case "Ребенок":
                 return Child;

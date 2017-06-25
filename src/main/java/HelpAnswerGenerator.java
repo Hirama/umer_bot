@@ -3,7 +3,7 @@ import org.telegram.telegrambots.api.objects.Update;
 import java.util.ArrayList;
 import java.util.Properties;
 
-public class FinalAnswerGenerator {
+public class HelpAnswerGenerator {
     private static Properties answers = PropertiesLoader.load("answers.properties");
 
     public static void reply(HelpType helpType, DeceasedProfile profile, Update update, UmerBot context){
@@ -30,6 +30,8 @@ public class FinalAnswerGenerator {
                         break;
                     }
                 }
+
+                FuneralTypeRequester.request(profile, update, context);
                 break;
             }
             case BuryFree:{
