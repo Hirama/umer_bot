@@ -13,6 +13,7 @@ public class FinalAnswer {
         switch (answer){
             case "Есть":{
                 MessageSender.send(chatId, "Вы лишили себя большого числа проблем", new ArrayList<>(), context);
+                break;
             }
             case "Нет":{
                 MessageSender.send(chatId, "Бесплатный участок: " + answers.getProperty("участок-бесплатный"),
@@ -24,6 +25,7 @@ public class FinalAnswer {
                 Stream.of( alts ).forEach( (alt)-> {
                     MessageSender.send(chatId, alt, new ArrayList<>(), context);
                 });
+                break;
             }
         }
 
