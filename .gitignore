@@ -4,5 +4,5 @@
 gradle/
 gradlew
 gradlew.bat
-resources/tg.properties
-
+/src/main/resources/tg.properties
+/build/
