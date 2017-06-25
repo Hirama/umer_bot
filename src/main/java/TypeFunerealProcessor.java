@@ -18,8 +18,7 @@ public class TypeFunerealProcessor {
                 Stream.of(priceOptions).forEach((option)-> {
                     MessageSender.send(chatId, option, new ArrayList<>(), context);
                 });
-
-
+                break;
             }
             case "Кремация":{
                 MessageSender.send(chatId, "Варианты по ценам:", new ArrayList<>(), context);
@@ -27,6 +26,7 @@ public class TypeFunerealProcessor {
                 Stream.of(priceOptions).forEach((option)-> {
                     MessageSender.send(chatId, option, new ArrayList<>(), context);
                 });
+                break;
             }
         }
 
