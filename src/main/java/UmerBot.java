@@ -15,7 +15,7 @@ public class UmerBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Long userId = new Long( update.getMessage().getFrom().getId() );
         DeceasedProfile profile = null;
-        if( !cache.containsKey(userId) ){
+        if( !cache.containsKey(userId) || "/start".equals(update.getMessage().getText()) ){
             profile = new DeceasedProfile();
             cache.put(userId, profile);
         } else {
