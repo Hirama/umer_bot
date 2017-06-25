@@ -3,9 +3,7 @@ import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.generics.BotSession;
 
-/**
- * Created by andrej on 25.06.17.
- */
+
 public class Main {
     public static void main(String[] args) {
 
