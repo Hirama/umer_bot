@@ -1,9 +1,10 @@
+import org.telegram.telegrambots.api.objects.Update;
+
 import java.util.Properties;
 
 
 public class CommandsSwitch {
-    private static Properties answers = PropertiesLoader.load("answers.properties");
-    public static void chooseAction(String message){
+    public static void chooseAction(String message, DeceasedProfile profile, Update update, UmerBot context){
 
         switch(message){
             case "Пенсионер":
@@ -11,6 +12,7 @@ public class CommandsSwitch {
             case "Ребенок":
             case "Работающий":{
                 Category category = Category.switchType(message);
+                CategoryProcessor.setCategory(category, profile, update, context);
                 break;
             }
 

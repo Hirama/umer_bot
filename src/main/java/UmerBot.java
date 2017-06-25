@@ -1,16 +1,29 @@
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class UmerBot extends TelegramLongPollingBot {
 
-    Properties resourceBundle = PropertiesLoader.load("tg.properties");
+    private Properties resourceBundle = PropertiesLoader.load("tg.properties");
+    private Map<Long, DeceasedProfile> cache = new ConcurrentHashMap<>();
 
     @Override
     public void onUpdateReceived(Update update) {
+        Long userId = new Long( update.getMessage().getFrom().getId() );
+        DeceasedProfile profile = null;
+        if( !cache.containsKey(userId) ){
+            profile = new DeceasedProfile();
+            cache.put(userId, profile);
+        } else {
+            profile = cache.get(userId);
+        }
+
         if (update.getMessage().hasText()) {
-            CommandsSwitch.chooseAction(update.getMessage().getText());
+            CommandsSwitch.chooseAction(update.getMessage().getText(), profile, update, this);
         }
     }
 

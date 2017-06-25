@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MessageSender {
 
-    private static SendMessage createMessageForUser(Long chatId, String promt, List<String> btns) {
+    public static SendMessage createMessageForUser(Long chatId, String promt, List<String> btns) {
         ReplyKeyboard keyboard = KeyboardHelper.createReplyKeyboard(btns, true);
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
