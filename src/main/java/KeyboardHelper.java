@@ -1,4 +1,3 @@
-import javafx.util.Pair;
 import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboardRemove;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardButton;
@@ -10,14 +9,14 @@ import java.util.List;
 
 public class KeyboardHelper {
 
-    public static ReplyKeyboardMarkup createReplyKeyboard(List<Pair<String, String>> buttons, boolean oneTime ) {
+    public static ReplyKeyboardMarkup createReplyKeyboard(List<String> buttons, boolean oneTime ) {
         ReplyKeyboardMarkup markup = new ReplyKeyboardMarkup();
         markup.setOneTimeKeyboard(oneTime);
         List<KeyboardRow> grid = new ArrayList<>();
-        for (Pair<String, String> btn : buttons) {
+        for (String btn : buttons) {
             KeyboardRow row = new KeyboardRow();
             KeyboardButton ibtn = new KeyboardButton();
-            ibtn.setText(btn.getKey());
+            ibtn.setText(btn);
             row.add(ibtn);
             grid.add(row);
         }
