@@ -15,7 +15,7 @@ public class CategoryProcessor {
                 List<String> btns = new ArrayList<>();
                 btns.add("Ветеран");
                 btns.add("Не ветеран");
-                MessageSender.send(chatId, "Кто умер?", btns, context);
+                MessageSender.send(chatId, "Был ли он ветераном?", btns, context);
                 break;
             }
             case Unemployed:
