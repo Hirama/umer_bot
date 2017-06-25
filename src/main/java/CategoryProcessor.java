@@ -1,4 +1,3 @@
-import javafx.util.Pair;
 import org.telegram.telegrambots.api.objects.Update;
 
 import java.util.ArrayList;
@@ -16,13 +15,16 @@ public class CategoryProcessor {
                 List<String> btns = new ArrayList<>();
                 btns.add("Ветеран");
                 btns.add("Не ветеран");
-                MessageSender.createMessageForUser(chatId, "Кто умер?", btns, context);
-
+                MessageSender.send(chatId, "Кто умер?", btns, context);
                 break;
             }
             case Unemployed:
-            case Child:
-            case Employed:
+            case Child:{
+                break;
+            }
+            case Employed:{
+                MessageSender.send(chatId, answers.getProperty("работающий"), new ArrayList<>(), context );
+            }
         }
     }
 }
