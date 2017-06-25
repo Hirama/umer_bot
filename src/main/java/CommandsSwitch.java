@@ -1,8 +1,5 @@
 import org.telegram.telegrambots.api.objects.Update;
 
-import java.util.Properties;
-
-
 public class CommandsSwitch {
     public static void chooseAction(String message, DeceasedProfile profile, Update update, UmerBot context){
 
@@ -18,13 +15,15 @@ public class CommandsSwitch {
 
             case "Ветеран":
             case "Не ветеран":{
-                boolean isVeteran = "Ветеран".equals(message);
+                profile.isVeteran = "Ветеран".equals(message);
+                HelpTypeRequester.request(profile, update, context);
                 break;
             }
 
             case "Получить выплату":
             case "Похоронить бесплатно":{
                 HelpType helpType = HelpType.switchType(message);
+                FinalAnswerGenerator.reply(helpType, profile, update, context);
                 break;
             }
             default:

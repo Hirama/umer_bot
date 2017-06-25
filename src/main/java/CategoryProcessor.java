@@ -20,6 +20,7 @@ public class CategoryProcessor {
             }
             case Unemployed:
             case Child:{
+                HelpTypeRequester.request(profile, update, context);
                 break;
             }
             case Employed:{
